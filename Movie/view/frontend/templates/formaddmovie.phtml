@@ -1,0 +1,95 @@
+<h2>Test Movie</h2>
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+              action="<?php echo $this->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset">
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Name')) ?></span></label>
+                            <div class="control">
+                                <input name="name" id="name" title="Name" value="" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+                        <div class="field name">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Description')) ?></span></label>
+                            <div class="control">
+                                <input name="description" id="description" title="Description" value="" class="input-text" type="text"">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Rating')) ?></span></label>
+                            <div class="control">
+                                <input name="rating" id="rating" title="Rating" value="" class="input-text" type="number"
+                                       data-validate="{required:true, 'validate-number':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Director')) ?></span></label>
+                            <a id="addDirector" style="cursor:pointer;">
+                                <span><?= $block->escapeHtml(__('Add New Director')) ?></span>
+                            </a>
+                            <div class="control">
+                                <select name="director_id" class="required-entry">
+                                    <option value="" disabled selected>Select Director</option>
+                                    <?php foreach ($block->getDirectors() as $director): ?>
+                                        <option value="<?php echo $director->getId() ?>"><?php echo $director->getName() ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Actor')) ?></span></label>
+                            <a id="addActor" style="cursor:pointer;">
+                                <span><?= $block->escapeHtml(__('Add New Actor')) ?></span>
+                            </a>
+                            <div class="control">
+                                <select name="actor_id" class="required-entry">
+                                    <option value="" disabled selected>Select Actor</option>
+                                    <?php foreach ($block->getActors() as $actor): ?>
+                                        <option value="<?php echo $actor->getId() ?>"><?php echo $actor->getName() ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Save"><span><?= $block->escapeHtmlAttr(__('Save')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    require(["jquery", "Magento_Ui/js/modal/modal"],function($, modal) {
+        var optionDirector = {
+            type: 'popup',
+            responsive: true,
+            title: 'Insert Director',
+            buttons: []
+        };
+        var popupDirector = modal(optionDirector, $('#modalDirector'));
+        $("#addDirector").click(function() {
+            $('#modalDirector').modal('openModal');
+        });
+
+        var optionActor = {
+            type: 'popup',
+            responsive: true,
+            title: 'Insert Actor',
+            buttons: []
+        };
+        var popupActor = modal(optionActor, $('#modalActor'));
+        $("#addActor").click(function() {
+            $('#modalActor').modal('openModal');
+        });
+    });
+</script>
+

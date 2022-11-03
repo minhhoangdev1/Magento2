@@ -1,0 +1,59 @@
+<!--<div class="breadcrumbs" id="breadcrumbs-example"></div>-->
+<!--<script>-->
+<!--    require([-->
+<!--        'jquery',-->
+<!--        'Magento_Theme/js/model/breadcrumb-list',-->
+<!--        'breadcrumbs'-->
+<!--    ], function ($, breadcrumbList) {-->
+<!--        'use strict';-->
+<!---->
+<!--        var breadcrumbs = [-->
+<!--            {-->
+<!--                'name': 'some-page-1',-->
+<!--                'link': '/some/path/1',-->
+<!--                'title': 'Link title for page 1',-->
+<!--                'label': 'Some page 1'-->
+<!--            },-->
+<!--            {-->
+<!--                'name': 'some-page-1',-->
+<!--                'link': '/some/path/2',-->
+<!--                'title': 'Link title for page 1',-->
+<!--                'label': 'Some page 2'-->
+<!--            }-->
+<!--        ];-->
+<!---->
+<!--        // adding breadcrumbs to the Breadcrumb List-->
+<!--        breadcrumbs.forEach(function (breadcrumb) {-->
+<!--            breadcrumbList.push(breadcrumb);-->
+<!--        });-->
+<!---->
+<!--        // Breadcrumbs widget initialization-->
+<!--        $('#breadcrumbs-example').breadcrumbs();-->
+<!--    });-->
+<!--</script>-->
+<a href="<?php echo $block->getActionToCreateMovie()?>">Create New Movie</a>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Rating</th>
+        <th>Director</th>
+        <th>Actor</th>
+    </thead>
+   <tbody>
+      <?php foreach ($block->getMovies() as $movie):?>
+          <tr>
+              <td><?php echo $movie['movie_id']?></td>
+              <td><?php echo $movie['movie_name']?></td>
+              <td><?php echo $movie['description']?></td>
+              <td><?php echo $movie['rating']?></td>
+              <td><?php echo $movie['director_name']?></td>
+              <td><?php echo $movie['actor_name']?></td>
+          </tr>
+      <?php endforeach; ?>
+   </tbody>
+</table>
+<?php
+    print_r(json_encode($block->getMovies()));
+?>
