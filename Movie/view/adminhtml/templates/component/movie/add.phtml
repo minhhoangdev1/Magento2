@@ -1,0 +1,38 @@
+<div id="page:main-container" class="page-columns">
+    <div id="container" class="main-col">
+        <div class="col-m-8">
+            <fieldset class="fieldset admin__fieldset " id="theme">
+                <div class="admin__field field ">
+                    <label class="label admin__field-label" for="test_input"><span>Name</span></label>
+                    <div class="admin__field-control control">
+                        <input name="name" id="name" value="" title="Name" type="text" class="input-text admin__control-text" />
+                    </div>
+                </div>
+                <div class="admin__field field ">
+                    <label class="label admin__field-label" for="test_input"><span>Description</span></label>
+                    <div class="admin__field-control control">
+                        <input name="description" id="description" value="" title="Description" type="text" class="input-text admin__control-text"/>
+                    </div>
+                </div>
+                <div class="admin__field field ">
+                    <label class="label admin__field-label" for="test_input"><span>Rating</span></label>
+                    <div class="admin__field-control control">
+                        <input name="rating" id="rating" value="" title="Description" type="number" class="input-text admin__control-text"/>
+                    </div>
+                </div>
+                <div class="admin__field field ">
+                    <label class="label admin__field-label" for="test_input"><span>Director</span></label>
+                    <div class="admin__field-control control">
+                        <select name="director_id" class="admin__control-select">
+                            <option value="" disabled selected>Select Director</option>
+                            <?php foreach ($block->getDirectors() as $director): ?>
+                                <option value="<?php echo $director->getId() ?>"><?php echo $director->getName() ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div id="page:left" class="side-col"></div>
+</div>

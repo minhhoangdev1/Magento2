@@ -1,0 +1,10 @@
+<script>
+    require(['jquery',], function ($) {
+        $('#btn_reload_page').on('click',()=>{
+            location.reload();
+        })
+    })
+</script>
+<?php
+    echo $block->getButtonHtml();
+?>

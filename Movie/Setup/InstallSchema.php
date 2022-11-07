@@ -18,7 +18,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     [
                         'identity' => true,
                         'nullable' => false,
-                        'primary'  => true,
+                        'primary' => true,
                         'unsigned' => true,
                     ],
                     'Director ID'
@@ -42,7 +42,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     [
                         'identity' => true,
                         'nullable' => false,
-                        'primary'  => true,
+                        'primary' => true,
                         'unsigned' => true,
                     ],
                     'Actor ID'
@@ -66,7 +66,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     [
                         'identity' => true,
                         'nullable' => false,
-                        'primary'  => true,
+                        'primary' => true,
                         'unsigned' => true,
                     ],
                     'Movie ID'
@@ -151,24 +151,23 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                 $installer->getTable('magenest_movie_actor'),
                 $setup->getIdxName(
                     $installer->getTable('magenest_movie_actor'),
-                    ['movie_id','actor_id'],
+                    ['movie_id', 'actor_id'],
                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX
                 ),
-                ['movie_id','actor_id'],
+                ['movie_id', 'actor_id'],
                 \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX
             );
 
+            $installer->getConnection()->addForeignKey(
+                $installer->getFkName('magenest_movie_actor', 'movie_id', 'magenest_movie', 'movie_id'),
+                $installer->getTable('magenest_movie_actor'),
+                'movie_id',
+                $installer->getTable('magenest_movie'),
+                'movie_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+            );
             $installer->getConnection()
                 ->addForeignKey(
-		        $installer->getFkName('magenest_movie_actor', 'movie_id', 'magenest_movie', 'movie_id'),
-		        $installer->getTable('magenest_movie_actor'),
-		        'movie_id',
-		        $installer->getTable('magenest_movie'),
-		        'movie_id',
-		        \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
-                );
-             $installer->getConnection()
-             	->addForeignKey(
                     $installer->getFkName('magenest_movie_actor', 'actor_id', 'magenest_actor', 'actor_id'),
                     $installer->getTable('magenest_movie_actor'),
                     'actor_id',
