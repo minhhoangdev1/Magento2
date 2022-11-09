@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_save_after">
+        <observer name="change_firstname_customer" instance="Magenest\Movie\Observer\ChangeFirstnameCustomer" />
+    </event>
+    <event name="save_movie">
+        <observer name="save_movie" instance="Magenest\Movie\Observer\SaveMovie" />
+    </event>
+    <event name="admin_system_config_changed_section_salesforcecrm">
+        <observer name="custom_admin_system_config_changed_section_salesforcecrm" instance="Magenest\Movie\Observer\ConfigChange" />
+    </event>
+</config>

@@ -36,10 +36,12 @@ class Save extends \Magento\Backend\App\Action
                 return $resultRedirect->setPath('*/*/');
             }
         }
-
         $model->setData($data);
         $model->save();
-
+        $parameters = [
+            'movie'=>$model
+        ];
+        $this->_eventManager->dispatch('save_movie',$parameters);
         return $this->resultRedirectFactory->create()->setPath('magenest/movie/index');
     }
 }
