@@ -12,4 +12,7 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Movie</argument>
         </arguments>
     </virtualType>
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin name="customerData" type="Magenest\Movie\Plugin\CustomerData\Customer" sortOrder="1"/>
+    </type>
 </config>

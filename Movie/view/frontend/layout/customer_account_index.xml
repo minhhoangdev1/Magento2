@@ -1,0 +1,12 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd"
+      layout="2columns-left">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Customer\Block\Account\Dashboard\Info"
+                   name="customer_account_profile_pic"
+                   before="customer_account_dashboard_info"
+                   template="Magenest_Movie::customer/account/avatarDashboard.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

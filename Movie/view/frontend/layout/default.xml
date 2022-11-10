@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magenest_Movie::css/global-avatar.css"/>
+        <css src="Magenest_Movie::css/review-item.css"/>
+    </head>
     <body>
         <referenceBlock name="footer_links">
             <block class="Magento\Framework\View\Element\Html\Link\Current" name="movie-link">
@@ -8,6 +12,13 @@
                     <argument name="path" xsi:type="string">magenest/movie/index</argument>
                 </arguments>
             </block>
+        </referenceBlock>
+
+<!--        Avatar Customer-->
+        <referenceBlock name="customer">
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Magenest_Movie::customer/account/avatarNav.phtml</argument>
+            </action>
         </referenceBlock>
     </body>
 </page>
