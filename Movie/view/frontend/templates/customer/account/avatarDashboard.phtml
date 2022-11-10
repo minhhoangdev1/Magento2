@@ -1,0 +1,18 @@
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?php echo __('Profile Picture'); ?></strong></div>
+    <div class="block-content">
+        <div class="box box-information">
+            <strong class="box-title">
+                <span><?php echo __('Profile Picture'); ?></span>
+            </strong>
+            <div class="box-content">
+                <?php $avatarFile = !empty($block->getCustomer()->getCustomAttribute('profile_picture')) ? $block->getLayout()->createBlock('\Magenest\Movie\Block\Customer\Attributes\Avatar')->checkImageFile(base64_encode($block->getCustomer()->getCustomAttribute('profile_picture')->getValue())) : false; ?>
+                <?php $avatar = ($avatarFile) ? $block->getUrl('magenest/avatar/view/', ['image' => base64_encode($block->getCustomer()->getCustomAttribute('profile_picture')->getValue())]) : $block->getViewFileUrl('Magenest_Movie::images/no-profile-photo.jpg');?>
+                <img src="<?php echo $avatar; ?>" width="150">
+            </div>
+            <?php
+                echo $block->getCustomer()->getFirstname().' '.$block->getCustomer()->getLastname();
+            ?>
+        </div>
+    </div>
+</div>
