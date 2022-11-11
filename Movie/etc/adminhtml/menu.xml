@@ -8,6 +8,7 @@
             sortOrder="85"
             resource="Magenest_Movie::magenest"
         />
+<!--        Section Movie-->
         <add
             id="Magenest_Movie::integration"
             title="Integration"
@@ -42,6 +43,24 @@
             parent="Magenest_Movie::integration"
             action="magenest/actor"
             resource="Magenest_Movie::actor"
+        />
+<!--        Section HelloWorld-->
+        <add
+            id="Magenest_Movie::helloworld"
+            title="HelloWorld"
+            module="Magenest_Movie"
+            sortOrder="50"
+            parent="Magenest_Movie::magenest"
+            resource="Magenest_Movie::helloworld"
+        />
+        <add
+            id="Magenest_Movie::index"
+            title="Helloworld Index"
+            module="Magenest_Movie"
+            sortOrder="55"
+            parent="Magenest_Movie::helloworld"
+            action="magenest/component"
+            resource="Magenest_Movie::index"
         />
     </menu>
 </config>

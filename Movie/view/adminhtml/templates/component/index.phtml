@@ -1,0 +1,22 @@
+<div class="col-m-4">
+    <fieldset class="fieldset admin__fieldset " id="theme">
+        <div class="admin__field field" data-ui-id="theme-edit-tabs-tab-general-section-fieldset-element-form-field-theme-path">
+            <label class="label admin__field-label"><span>Number of Module Other</span></label>
+            <div class="admin__field-control control">
+                <div class="control-value"><?php echo $block->numberModuleOther();?></div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="col-m-4">
+    <table class="admin__table-secondary">
+        <tr>
+            <th><?php echo __('Number of Module Magento Customer') ?></th>
+            <td><?php echo $block->numberModuleMagentoCustomer();?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Number of Module Magento Product') ?></th>
+            <td><?php echo $block->numberModuleMagentoProduct();?></td>
+        </tr>
+    </table>
+</div>
