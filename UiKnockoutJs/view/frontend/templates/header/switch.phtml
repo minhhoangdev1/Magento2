@@ -1,0 +1,32 @@
+<li class="customer-welcome">
+    <span
+        data-mage-init='{"dropdown":{}}'
+        data-toggle="dropdown2"
+        class="action"
+        data-action="customer-menu-toggle">
+        <span><?= $block->escapeHtml(__('Background')) ?></span>
+    </span>
+    <ul data-target="dropdown2" class="dropdown-options" data-bind="scope:'changeBackground'">
+        <li>
+            <span class="item1" data-bind="click:change.bind($data,'')"><a href="#">Default</a></span>
+        </li>
+        <?php foreach ($block->GetDataBackground() as $item): ?>
+            <li>
+                <span class="item1" data-bind="click:change.bind($data,'<?= $item['background_color'] ?>')"><a href="#"><?php echo $item['name_color'] ?></a></span>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "changeBackground": {
+                        "component": "Magenest_UiKnockoutJs/js/changeBackground"
+                    }
+                }
+            }
+        }
+    }
+</script>

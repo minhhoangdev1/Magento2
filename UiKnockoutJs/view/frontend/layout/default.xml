@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Magenest_UiKnockoutJs::js/popup.js"/>
+    </head>
+    <body>
+        <referenceBlock name="header.links">
+            <block class="Magenest\UiKnockoutJs\Block\Adminhtml\ChangeBackground" name="header-dropdown" template="Magenest_UiKnockoutJs::header/switch.phtml"/>
+        </referenceBlock>
+        <move element="header-dropdown" destination="header.links" after="link.authorization-link"/>
+
+        <referenceContainer name="content">
+            <block class="Magenest\UiKnockoutJs\Block\Adminhtml\Popup" name="index.home" template="Magenest_UiKnockoutJs::index/popup.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,16 @@
+<?php $i=1;?>
+<?php foreach ($block->getBanners() as $banner):?>
+    <div id='ads'>
+        <?php if($i==2):?>
+            <div style=' padding:0;width:160px;position:fixed; top:0; left:0;z-index:1'>
+        <?php endif;?>
+        <?php if($i==1):?>
+            <div style=' padding:0;width:160px;position:fixed; top:0; right:0;z-index:1'>
+        <?php endif;?>
+               <span style="color: #ff0000;" data-mce-style="color: #ff0000;">
+                    <a href='#'><img src='<?php echo $block->storeManager()->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).'banner/feature/'.$banner['image'];?>'/></a>
+               </span>
+            </div>
+    </div>
+<?php $i++;?>
+<?php endforeach; ?>

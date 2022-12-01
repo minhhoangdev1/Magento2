@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_popup" resource="default" engine="innodb" comment="Magenest Popup Table">
+        <column xsi:type="int" name="popup_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" length="255" comment=""/>
+        <column xsi:type="text" name="content"  comment=""/>
+        <column xsi:type="varchar" name="customer_group" length="255" comment=""/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="popup_id"/>
+        </constraint>
+        <index referenceId="NAME" indexType="btree">
+            <column name="title"/>
+        </index>
+    </table>
+    <table name="magenest_banner" resource="default" engine="innodb" comment="Magenest Banner Table">
+        <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" length="255" comment=""/>
+        <column xsi:type="boolean" name="enable" length="255" comment=""/>
+        <column xsi:type="varchar" name="title"  comment=""/>
+        <column xsi:type="varchar" name="image"  comment=""/>
+        <column xsi:type="varchar" name="link"  comment=""/>
+        <column xsi:type="text" name="text"  comment=""/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="banner_id"/>
+        </constraint>
+    </table>
+</schema>

@@ -1,0 +1,12 @@
+<h3>Thoi gian giao hang</h3>
+<input type="text" class="input-text required-entry" id="timeShip" name="timeShip" aria-required="true" >
+<script>
+    require([
+        "jquery",
+        "mage/calendar"
+    ], function($){
+        $("#timeShip").calendar({
+            buttonText:"<?php echo __('Select Date') ?>",
+        });
+    });
+</script>
