@@ -43,8 +43,8 @@
    <tbody>
       <?php foreach ($block->getMovies() as $movie):?>
           <tr>
-              <td><?php echo $movie['movie_id']?></td>
-              <td><?php echo $movie['movie_name']?></td>
+              <td><?php echo __($movie['movie_id'])?></td>
+              <td><?php echo __($movie['movie_name'])?></td>
               <td><?php echo $movie['description']?></td>
               <td><?php echo $movie['rating']?></td>
               <td><?php echo $movie['director_name']?></td>

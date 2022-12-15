@@ -6,6 +6,7 @@
             </argument>
         </arguments>
     </type>
+
     <virtualType name="Magenest\Movie\Model\ResourceModel\Movie\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_movie</argument>
@@ -14,5 +15,34 @@
     </virtualType>
     <type name="Magento\Customer\CustomerData\Customer">
         <plugin name="customerData" type="Magenest\Movie\Plugin\CustomerData\Customer" sortOrder="1"/>
+    </type>
+
+    <virtualType name="Magenest\Movie\ReferenceImageUpload" type="Magenest\Movie\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">magenest/tmp/feature</argument>
+            <argument name="basePath" xsi:type="string">magenest/feature</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="gif" xsi:type="string">image/gif</item>
+                <item name="png" xsi:type="string">image/png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magenest\Movie\Controller\Adminhtml\Course">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Magenest\Movie\ReferenceImageUpload</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Ui\DataProvider\EavValidationRules">
+        <plugin name="customer_phone_attribute_validation" type="Magenest\Movie\Plugin\EavValidationRules" sortOrder="10" disabled="false"  />
     </type>
 </config>

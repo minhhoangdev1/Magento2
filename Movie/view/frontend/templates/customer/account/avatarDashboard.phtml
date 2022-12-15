@@ -13,6 +13,12 @@
             <?php
                 echo $block->getCustomer()->getFirstname().' '.$block->getCustomer()->getLastname();
             ?>
+            <div>
+                <?php  $isCustomerb2b = !empty($block->getCustomer()->getCustomAttribute('is_customer_b2b')) ? $block->getCustomer()->getCustomAttribute('is_customer_b2b')->getValue() : '' ?>
+                <?php if($isCustomerb2b==1):?>
+                    <h3>Is Customer B2B</h3>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,30 @@
+{
+    "magenest_popup": {
+        "column": {
+            "popup_id": true,
+            "title": true,
+            "content": true,
+            "customer_group": true
+        },
+        "index": {
+            "MAGENEST_POPUP_TITLE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magenest_banner": {
+        "column": {
+            "banner_id": true,
+            "name": true,
+            "enable": true,
+            "title": true,
+            "image": true,
+            "link": true,
+            "text": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

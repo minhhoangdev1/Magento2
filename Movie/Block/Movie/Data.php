@@ -32,7 +32,6 @@ class Data extends Template
             ->joinLeft($actorTable, $actorTable . '.actor_id=' . $actormovieTable . '.actor_id', ['actor_name' => 'name']);
         return $data->getData();
     }
-
     public function getActionToCreateMovie()
     {
         return $this->getUrl('movie', ['_secure' => true]);

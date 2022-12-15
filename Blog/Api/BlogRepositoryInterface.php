@@ -1,20 +1,28 @@
 <?php
 namespace Magenest\Blog\Api;
-interface BlogtoryInterface
+interface BlogRepositoryInterface
 {
     /**
-     * Return a filtered product.
-     *
-     * @param int $id
-     * @return \Dev\RestApi\Api\ResponseItemInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return Array
+     */
+    public function getBlogs();
+
+    /**
+     * @return Array
      */
     public function getItem(int $id);
+
     /**
-     * Set descriptions for the products.
-     *
-     * @param \Dev\RestApi\Api\RequestItemInterface[] $products
-     * @return void
+     * @return Array
      */
-    public function setDescription(array $products);
+    public function deleteItem(int $id);
+
+    /**
+     * @return Array
+     */
+    public function create();
+    /**
+     * @return Array
+     */
+    public function update(int $id);
 }

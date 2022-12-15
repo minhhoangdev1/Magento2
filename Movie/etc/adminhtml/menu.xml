@@ -3,7 +3,7 @@
     <menu>
         <add
             id="Magenest_Movie::magenest"
-            title="Movie"
+            title="Magenest"
             module="Magenest_Movie"
             sortOrder="85"
             resource="Magenest_Movie::magenest"
@@ -39,7 +39,7 @@
             id="Magenest_Movie::actor"
             title="Actor Index"
             module="Magenest_Movie"
-            sortOrder="105  "
+            sortOrder="105"
             parent="Magenest_Movie::integration"
             action="magenest/actor"
             resource="Magenest_Movie::actor"

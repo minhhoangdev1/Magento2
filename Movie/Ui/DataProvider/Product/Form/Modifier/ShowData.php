@@ -10,28 +10,44 @@ use Magento\Ui\Component\Container;
 use Magento\Ui\Component\Form\Element\ActionDelete;
 use Magento\Ui\Component\Form\Element\Select;
 use Magento\Ui\Component\Form\Element\DataType\Text;
-class NewField extends AbstractModifier
+use function PHPUnit\Framework\isEmpty;
+
+class ShowData extends AbstractModifier
 {
     private $locator;
+    private $courseFactory;
     public function __construct(
-        LocatorInterface $locator
+        LocatorInterface $locator,
+        \Magenest\Movie\Model\ResourceModel\Course\CollectionFactory $courseFactory
     ) {
         $this->locator = $locator;
+        $this->courseFactory=$courseFactory;
     }
     public function modifyData(array $data)
     {
         $product = $this->locator->getProduct();
         $productId = $product->getId();
-        $data = array_replace_recursive(
-            $data, [
-            $productId => [
-                'magenest' => [
-                    'myCheckbox' => true,
-                    'from_date' => '21/11/2022',
-                    'to_date' => '21/11/2022'
+        $collection = $this->courseFactory->create();
+        $dataCoures = $collection->addFieldToFilter('entity_id',$productId);
+        if(count($dataCoures->getData())==0){
+            $data = array_replace_recursive(
+                $data, [
+                $productId => [
+                    'magenest' => [
+                        'myCheckbox' => false
+                    ]
                 ]
-            ]
-        ]);
+            ]);
+        }else{
+            $data = array_replace_recursive(
+                $data, [
+                $productId => [
+                    'magenest' => [
+                        'myCheckbox' => true
+                    ]
+                ]
+            ]);
+        }
         return $data;
     }
     public function modifyMeta(array $meta)

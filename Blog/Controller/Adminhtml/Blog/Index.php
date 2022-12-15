@@ -1,5 +1,5 @@
 <?php
-namespace Magenest\Movie\Controller\Adminhtml\Movie;
+namespace Magenest\Blog\Controller\Adminhtml\Blog;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 class Index extends \Magento\Backend\App\Action
@@ -13,14 +13,14 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magenest_Movie::movie');
-        $resultPage->addBreadcrumb(__('Movie'), __('Movie'));
-        $resultPage->addBreadcrumb(__('Manage Movie'), __('Manage Movie'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Magenest Movie'));
+        $resultPage->setActiveMenu('Magenest_Blog::blog');
+        $resultPage->addBreadcrumb(__('Blog'), __('Blog'));
+        $resultPage->addBreadcrumb(__('Manage Blog'), __('Manage Blog'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Magenest Blog'));
         return $resultPage;
     }
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Magenest_Movie::magenest_movie');
+        return $this->_authorization->isAllowed('Magenest_Blog::magenest');
     }
 }

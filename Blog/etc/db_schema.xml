@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_blog" resource="default" engine="innodb" comment="Magenest Blog Table">
+        <column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" length="255" comment=""/>
+        <column xsi:type="text" name="description" comment=""/>
+        <column xsi:type="varchar" name="content" length="255" comment=""/>
+        <column xsi:type="varchar" name="url_rewrite" length="255" comment=""/>
+        <column xsi:type="boolean" name="status" comment=""/>
+        <column xsi:type="timestamp" name="create_at"  comment=""/>
+        <column xsi:type="timestamp" name="update_at"  comment=""/>
+        <column xsi:type="int" name="author_id" unsigned="true" nullable="false" comment="Admin User ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FL_ALLOWED_ADMIN_USER"
+                    table="magenest_blog" column="author_id"
+                    referenceTable="admin_user" referenceColumn="user_id"
+                    onDelete="CASCADE"/>
+        <index referenceId="TITLE" indexType="btree">
+            <column name="title"/>
+        </index>
+        <index referenceId="CONTENT" indexType="btree">
+            <column name="content"/>
+        </index>
+    </table>
+    <table name="magenest_category" resource="default" engine="innodb" comment="Magenest Category Table">
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" length="255" comment="Link course"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="category_id"/>
+        </constraint>
+        <index referenceId="NAME" indexType="btree">
+            <column name="name"/>
+        </index>
+    </table>
+    <table name="magenest_blog_category" resource="default" engine="innodb" comment="Magenest Blog Category Table">
+        <column xsi:type="int" name="blog_id" unsigned="true" nullable="false"  comment=""/>
+        <column xsi:type="int" name="category_id" unsigned="true" nullable="false" comment=""/>
+        <constraint xsi:type="foreign" referenceId="FL_ALLOWED_MAGENEST_BLOG"
+                    table="magenest_blog_category" column="blog_id"
+                    referenceTable="magenest_blog" referenceColumn="blog_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FL_ALLOWED_MAGENEST_CATEGORY"
+                    table="magenest_blog_category" column="category_id"
+                    referenceTable="magenest_category" referenceColumn="category_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

@@ -1,12 +1,56 @@
 <h3>Thoi gian giao hang</h3>
-<input type="text" class="input-text required-entry" id="timeShip" name="timeShip" aria-required="true" >
-<script>
-    require([
-        "jquery",
-        "mage/calendar"
-    ], function($){
-        $("#timeShip").calendar({
-            buttonText:"<?php echo __('Select Date') ?>",
-        });
-    });
+<input data-bind="scope:'timeShip'" type="text" class="input-text required-entry" id="timeShip" name="timeShip" aria-required="true" >
+<!--<div class="facebook_button social-button">-->
+<!--    <div id="fb-root"></div>-->
+<!--    <script>(function(d, s, id) {-->
+<!--            var js, fjs = d.getElementsByTagName(s)[0];-->
+<!--            if (d.getElementById(id)) return;-->
+<!--            js = d.createElement(s); js.id = id;-->
+<!--            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';-->
+<!--            fjs.parentNode.insertBefore(js, fjs);-->
+<!--        }(document, 'script', 'facebook-jssdk'));</script>-->
+<!---->
+<!--    <div class="fb-like" data-layout="button" data-width="400" data-show-faces="false"  data-href="--><?php //echo 'test'; ?><!--"  data-send="true"></div>-->
+<!--</div>-->
+<!---->
+<!--<div id="accordion" data-mage-init='{-->
+<!--        "accordion":{-->
+<!--            "active": [2],-->
+<!--            "collapsible": true,w-->
+<!--            "openedState": "active",-->
+<!--            "multipleCollapsible": true-->
+<!--        }}'>-->
+<!--    <div data-role="collapsible">-->
+<!--        <div data-role="trigger">-->
+<!--            <h4>Title 1</h4>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div data-role="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</div>-->
+<!---->
+<!--    <div data-role="collapsible">-->
+<!--        <div data-role="trigger">-->
+<!--            <h4>Title 2</h4>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div data-role="content"> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>-->
+<!---->
+<!--    <div data-role="collapsible">-->
+<!--        <div data-role="trigger">-->
+<!--            <h4>Title 3</h4>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div data-role="content">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</div>-->
+<!--</div>-->
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "timeShip": {
+                        "component": "Magenest_UiKnockoutJs/js/timeShip"
+                    }
+                }
+            }
+        }
+    }
 </script>

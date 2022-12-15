@@ -10,7 +10,10 @@
         <move element="header-dropdown" destination="header.links" after="link.authorization-link"/>
 
         <referenceContainer name="content">
-            <block class="Magenest\UiKnockoutJs\Block\Adminhtml\Popup" name="index.home" template="Magenest_UiKnockoutJs::index/popup.phtml"/>
+            <block class="Magenest\UiKnockoutJs\Block\Adminhtml\Popup" name="index.popup" template="Magenest_UiKnockoutJs::index/popup.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magenest\UiKnockoutJs\Block\Adminhtml\Popup" name="index.buttonShare" template="Magenest_UiKnockoutJs::buttonShare.phtml"/>
         </referenceContainer>
     </body>
 </page>

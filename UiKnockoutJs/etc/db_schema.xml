@@ -15,7 +15,7 @@
     <table name="magenest_banner" resource="default" engine="innodb" comment="Magenest Banner Table">
         <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
         <column xsi:type="varchar" name="name" length="255" comment=""/>
-        <column xsi:type="boolean" name="enable" length="255" comment=""/>
+        <column xsi:type="boolean" name="enable"  comment=""/>
         <column xsi:type="varchar" name="title"  comment=""/>
         <column xsi:type="varchar" name="image"  comment=""/>
         <column xsi:type="varchar" name="link"  comment=""/>

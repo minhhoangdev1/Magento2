@@ -1,22 +1,24 @@
 <?php
 
-namespace Magenest\Movie\Controller\Adminhtml\Movie;
+namespace Magenest\Blog\Controller\Adminhtml\Blog;
 
-use Magenest\Movie\Model\MovieFactory;
+use Magenest\Blog\Model\BlogFactory;
 use Magento\Framework\Exception\LocalizedException;
 
 class Save extends \Magento\Backend\App\Action
 {
-    protected $movieFactory;
+    protected $blogFactory;
+    protected $authSession;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        MovieFactory                        $movieFactory,
-
+        BlogFactory                        $blogFactory,
+        \Magento\Backend\Model\Auth\Session $authSession,
     )
     {
         parent::__construct($context);
-        $this->movieFactory = $movieFactory;
+        $this->blogFactory = $blogFactory;
+        $this->authSession = $authSession;
     }
 
     public function execute()
@@ -24,12 +26,11 @@ class Save extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
 
         $data = $this->getRequest()->getPostValue()['general'];
+        $model = $this->blogFactory->create();
 
-        $model = $this->movieFactory->create();
-
-        if (isset($data['movie_id'])) {
+        if (isset($data['blog_id'])) {
             try {
-                $id = $data['movie_id'];
+                $id = $data['blog_id'];
                 $model = $model->load($id);
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage(__('This page no longer exists.'));
@@ -37,11 +38,12 @@ class Save extends \Magento\Backend\App\Action
             }
         }
         $model->setData($data);
-        $model->save();
+        $model->setAuthorId($this->authSession->getUser()->getuserId());
         $parameters = [
-            'movie'=>$model
+            'blog'=>$model
         ];
-        $this->_eventManager->dispatch('save_movie',$parameters);
-        return $this->resultRedirectFactory->create()->setPath('magenest/movie/index');
+        $this->_eventManager->dispatch('blog_save_before',$parameters);
+        return $this->resultRedirectFactory->create()->setPath('magenest/blog/index');
     }
+
 }

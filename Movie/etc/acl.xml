@@ -3,19 +3,19 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magenest_Movie::magenest">
-                    <resource id="Magenest_Movie::integration" title="Integration" sortOrder="65">
-                        <resource id="Magenest_Movie::movie" title="Movie index" />
-                        <resource id="Magenest_Movie::director" title="Director index" />
-                        <resource id="Magenest_Movie::actor" title="Actor index" />
+                <resource id="Magenest_Movie::magenest" title="magenest" translate="title" >
+                    <resource id="Magenest_Movie::integration" title="Integration" translate="title" sortOrder="65">
+                        <resource id="Magenest_Movie::movie" title="Movie index" translate="title"/>
+                        <resource id="Magenest_Movie::director" title="Director index" translate="title"/>
+                        <resource id="Magenest_Movie::actor" title="Actor index" translate="title"/>
                     </resource>
                 </resource>
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Magenest_Movie::config_salesforcecrm" title="SalesforceCRM Section" />
-                            <resource id="Magenest_Movie::config_sociallogin" title="SocialLogin Section" />
-                            <resource id="Magenest_Movie::config_xero" title="Xero Section" />
+                            <resource id="Magenest_Movie::config_salesforcecrm" title="SalesforceCRM Section" translate="title"/>
+                            <resource id="Magenest_Movie::config_sociallogin" title="SocialLogin Section" translate="title"/>
+                            <resource id="Magenest_Movie::config_xero" title="Xero Section" translate="title"/>
                         </resource>
                     </resource>
                 </resource>

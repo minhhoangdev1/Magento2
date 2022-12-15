@@ -1,6 +1,6 @@
 <?php
 
-namespace Magenest\Movie\Ui;
+namespace Magenest\Blog\Ui;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
 

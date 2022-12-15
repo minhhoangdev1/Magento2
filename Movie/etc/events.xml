@@ -9,4 +9,7 @@
     <event name="admin_system_config_changed_section_salesforcecrm">
         <observer name="custom_admin_system_config_changed_section_salesforcecrm" instance="Magenest\Movie\Observer\ConfigChange" />
     </event>
+    <event name="customer_save_before">
+        <observer name="custom_phone_customer" instance="Magenest\Movie\Observer\CustomPhoneCustomer" />
+    </event>
 </config>

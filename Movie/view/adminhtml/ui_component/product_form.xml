@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="magenest">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Magenest Custom Fields</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">data.magenest</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+<!--            <item name="buttons" xsi:type="array">-->
+<!--                <item name="back" xsi:type="string">VendoreName\ModuleName\Block\Adminhtml\Edit\Button\Back</item>-->
+<!--            </item>-->
+        </argument>
+        <field name="myCheckbox" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magenest_Movie/js/mycheckbox</item>
+                    <item name="source" xsi:type="string">homeslider</item>
+<!--                    <item name="default" xsi:type="number">1</item>-->
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Enabled</label>
+                <tooltip>
+                    <description translate="true">This is my checkbox's description</description>
+                </tooltip>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <prefer>toggle</prefer>
+                        <valueMap>
+                            <map name="false" xsi:type="boolean">false</map>
+                            <map name="true" xsi:type="boolean">true</map>
+                        </valueMap>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="from_date" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="options" xsi:type="array">
+                        <item name="showsTime" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="source" xsi:type="string">from_date</item>
+                </item>
+            </argument>
+            <settings>
+                <!--                <validation>-->
+                <!--                    <rule name="validate-date" xsi:type="boolean">true</rule>-->
+                <!--                </validation>-->
+                <dataType>timestamp</dataType>
+                <label translate="true">From</label>
+                <visible>true</visible>
+                <dataScope>from_date</dataScope>
+            </settings>
+<!--            <depends>-->
+<!--                <field name="myCheckbox">true</field>-->
+<!--            </depends>-->
+        </field>
+        <field name="to_date" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="options" xsi:type="array">
+                        <item name="showsTime" xsi:type="boolean">true</item>
+<!--                        <item name="minDate" xsi:type="string">new Date(2022, 1 - 1, 1)</item>-->
+                    </item>
+                    <item name="source" xsi:type="string">to_date</item>
+                </item>
+            </argument>
+            <settings>
+                <!--                <validation>-->
+                <!--                    <rule name="validate-date" xsi:type="boolean">true</rule>-->
+                <!--                </validation>-->
+                <dataType>timestamp</dataType>
+<!--                <id>test</id>-->
+                <label translate="true">To</label>
+                <visible>true</visible>
+                <dataScope>to_date</dataScope>
+            </settings>
+        </field>
+        <dynamicRows name="dynamic_rows">
+            <settings>
+                <addButtonLabel translate="true">Add Record</addButtonLabel>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <componentType>dynamicRows</componentType>
+            </settings>
+            <container name="record" component="Magento_Ui/js/dynamic-rows/record">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="isTemplate" xsi:type="boolean">true</item>
+                        <item name="is_collection" xsi:type="boolean">true</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                    </item>
+                </argument>
+                <field name="link" formElement="input">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <validation>
+                            <rule name="required-entry" xsi:type="boolean">true</rule>
+                        </validation>
+                        <dataType>text</dataType>
+                        <label>Link course</label>
+                    </settings>
+                </field>
+<!--                <htmlContent name="select_button">-->
+<!--                    <argument name="data" xsi:type="array">-->
+<!--                        <item name="config" xsi:type="array">-->
+<!--                            <item name="component" xsi:type="string">Magento_Ui/js/form/components/html</item>-->
+<!--                            <item name="additionalClasses" xsi:type="string">wk-view-variant</item>-->
+<!--                        </item>-->
+<!--                    </argument>-->
+<!--                    <block name="html_content_block" class="Magenest\Movie\Block\Adminhtml\CustomButton\Edit\Form\ViewCustom">-->
+<!--                        <arguments>-->
+<!--                            <argument name="template" xsi:type="string">Magenest_Movie::customButton.phtml</argument>-->
+<!--                        </arguments>-->
+<!--                    </block>-->
+<!--                </htmlContent>-->
+
+<!--                <field formElement="imageUploader" name="image" sortOrder="40" >-->
+<!--                    <argument name="data" xsi:type="array">-->
+<!--                        <item name="config" xsi:type="array">-->
+<!--                            <item name="source" xsi:type="string">Demo</item>-->
+<!--                        </item>-->
+<!--                    </argument>-->
+<!--                    <settings>-->
+<!--                        <elementTmpl>ui/form/element/uploader/image</elementTmpl>-->
+<!--                        <dataType>string</dataType>-->
+<!--                        <label translate="true">Image</label>-->
+<!--                        <visible>true</visible>-->
+<!--&lt;!&ndash;                        <validation>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <rule name="required-entry" xsi:type="boolean">true</rule>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </validation>&ndash;&gt;-->
+<!--                    </settings>-->
+<!--                    <formElements>-->
+<!--                        <imageUploader>-->
+<!--                            <settings>-->
+<!--                                <required>true</required>-->
+<!--                                &lt;!&ndash;                        <uploaderConfig>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                            <param xsi:type="url" name="url" path="magenest/course/uploadimage"/>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        </uploaderConfig>&ndash;&gt;-->
+<!--                                <previewTmpl>Magenest_Movie/image-preview</previewTmpl>-->
+<!--                                <openDialogTitle>Media Gallery</openDialogTitle>-->
+<!--                                <allowedExtensions>jpg jpeg gif png</allowedExtensions>-->
+<!--                                <maxFileSize>4194304</maxFileSize>-->
+<!--                            </settings>-->
+<!--                        </imageUploader>-->
+<!--                    </formElements>-->
+<!--                </field>-->
+                <actionDelete>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="componentType" xsi:type="string">actionDelete</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="fit" xsi:type="boolean">false</item>
+                            <item name="label" xsi:type="string">Actions</item>
+                            <item name="additionalClasses" xsi:type="string">data-grid-actions-cell</item>
+                            <item name="template" xsi:type="string">Magento_Backend/dynamic-rows/cells/action-delete</item>
+                        </item>
+                    </argument>
+                </actionDelete>
+            </container>
+        </dynamicRows>
+<!--        <field name="image">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="dataType" xsi:type="string">string</item>-->
+<!--                    <item name="source" xsi:type="string">Course</item>-->
+<!--                    <item name="label" xsi:type="string" translate="true">Image</item>-->
+<!--                    <item name="visible" xsi:type="boolean">true</item>-->
+<!--                    <item name="formElement" xsi:type="string">fileUploader</item>-->
+<!--                    <item name="previewTmpl" xsi:type="string">Magenest_Movie/image-preview</item>-->
+<!--                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>-->
+<!--                    <item name="required" xsi:type="boolean">false</item>-->
+<!--                    <item name="uploaderConfig" xsi:type="array">-->
+<!--                        <item name="url" xsi:type="url" path="magenest/course/uploadimage"/>-->
+<!--                    </item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </field>-->
+    </fieldset>
+</form>

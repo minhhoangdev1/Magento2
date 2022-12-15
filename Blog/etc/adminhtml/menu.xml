@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Magenest_Blog::blog"
+            title="Blog"
+            module="Magenest_Blog"
+            sortOrder="90"
+            parent="Magenest_Movie::integration"
+            resource="Magenest_Blog::blog"
+            action="magenest/blog"
+        />
+    </menu>
+</config>

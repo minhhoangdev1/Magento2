@@ -1,6 +1,6 @@
 <?php
 
-namespace Magenest\Movie\Ui\Component\Movie\Grid\Column;
+namespace Magenest\Blog\Ui\Component\Blog\Grid\Columns;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -10,7 +10,7 @@ use Magento\Framework\UrlInterface;
 class Action extends Column
 {
     /** Url path */
-    const ROW_EDIT_URL = 'magenest/movie/edit';
+    const ROW_EDIT_URL = 'magenest/blog/edit';
     /** @var UrlInterface */
     protected $_urlBuilder;
 
@@ -53,11 +53,11 @@ class Action extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
                 $name = $this->getData('name');
-                if (isset($item['movie_id'])) {
+                if (isset($item['blog_id'])) {
                     $item[$name]['edit'] = [
                         'href' => $this->_urlBuilder->getUrl(
                             $this->_editUrl,
-                            ['id' => $item['movie_id']]
+                            ['id' => $item['blog_id']]
                         ),
                         'label' => __('Edit'),
                     ];

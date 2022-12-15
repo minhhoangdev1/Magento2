@@ -1,6 +1,6 @@
 <?php
 
-namespace Magenest\Movie\Controller\Adminhtml\Movie;
+namespace Magenest\Blog\Controller\Adminhtml\Blog;
 
 use Magento\Framework\Controller\ResultFactory;
 

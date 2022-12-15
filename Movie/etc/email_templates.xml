@@ -1,0 +1,9 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="email_order_course"
+              label="Email order Course"
+              file="email_order_course.html"
+              type="html"
+              module="Magenest_Movie"
+              area="frontend"
+    />
+</config>

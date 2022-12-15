@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_course" resource="default" engine="innodb" comment="Magenest Course Table">
+        <column xsi:type="int" name="course_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="link" length="255" comment="Link course"/>
+        <column xsi:type="varchar" name="image" length="255" comment="Image"/>
+        <column xsi:type="varchar" name="from_date" length="255" comment="From Date"/>
+        <column xsi:type="varchar" name="to_date" length="255" comment="To Date"/>
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" comment="Product ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="course_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FL_ALLOWED_PRODUCT"
+                    table="magenest_course" column="entity_id"
+                    referenceTable="catalog_product_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

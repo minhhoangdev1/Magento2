@@ -43,7 +43,7 @@ class Thumbnail extends Column
                 }
                 $item[$fieldName . '_src'] = $url;
                 $item[$fieldName . '_alt'] = $item[$fieldName];
-                //$item[$fieldName . '_link'] = $this->urlBuilder->getUrl('adminRouteName/adminControllerName/actionName', ['id' => $item['banner_id']]); // add edit url
+                $item[$fieldName . '_link'] = $this->urlBuilder->getUrl('magenest/banner/new', ['id' => $item['banner_id']]); // add edit url
                 $item[$fieldName . '_orig_src'] = $url;
             }
         }

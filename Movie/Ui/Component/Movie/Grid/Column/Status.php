@@ -1,4 +1,5 @@
 <?php
+
 namespace Magenest\Movie\Ui\Component\Movie\Grid\Column;
 
 use Magento\Sales\Api\OrderRepositoryInterface;
@@ -13,15 +14,16 @@ class Status extends Column
     protected $_searchCriteria;
 
     public function __construct(
-        ContextInterface $context,
-        UiComponentFactory $uiComponentFactory,
+        ContextInterface         $context,
+        UiComponentFactory       $uiComponentFactory,
         OrderRepositoryInterface $orderRepository,
-        SearchCriteriaBuilder $criteria,
-        array $components = [],
-        array $data = []
-    ) {
+        SearchCriteriaBuilder    $criteria,
+        array                    $components = [],
+        array                    $data = []
+    )
+    {
         $this->_orderRepository = $orderRepository;
-        $this->_searchCriteria  = $criteria;
+        $this->_searchCriteria = $criteria;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
@@ -29,10 +31,10 @@ class Status extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
-                if($item['increment_id']%2==0){
-                    $status='<span class="grid-severity-notice"><span>Even</span></span>';
-                }else{
-                    $status='<span class="grid-severity-critical"><span>Odd</span></span>';
+                if ($item['increment_id'] % 2 == 0) {
+                    $status = '<span class="grid-severity-notice"><span>Even</span></span>';
+                } else {
+                    $status = '<span class="grid-severity-critical"><span>Odd</span></span>';
                 }
                 $item[$this->getData('name')] = $status;
             }

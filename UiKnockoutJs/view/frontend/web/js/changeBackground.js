@@ -1,4 +1,4 @@
-define(['jquery', 'uiComponent', 'ko'], function ($, Component, ko) {
+define(['jquery', 'uiComponent', 'ko',"mage/calendar"], function ($, Component, ko) {
         'use strict';
         return Component.extend({
             initialize: function () {

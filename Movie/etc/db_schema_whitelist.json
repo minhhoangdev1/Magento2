@@ -1,0 +1,16 @@
+{
+    "magenest_course": {
+        "column": {
+            "course_id": true,
+            "link": true,
+            "image": true,
+            "from_date": true,
+            "to_date": true,
+            "entity_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MAGENEST_COURSE_ENTITY_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+        }
+    }
+}

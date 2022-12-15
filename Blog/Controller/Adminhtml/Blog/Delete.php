@@ -1,12 +1,12 @@
 <?php
 
-namespace Magenest\Movie\Controller\Adminhtml\Movie;
+namespace Magenest\Blog\Controller\Adminhtml\Blog;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
-use Magenest\Movie\Model\ResourceModel\Movie\CollectionFactory;
+use Magenest\Blog\Model\ResourceModel\Blog\CollectionFactory;
 
 class Delete extends Action
 {
@@ -39,6 +39,6 @@ class Delete extends Action
         } catch (\Exception $e) {
             $this->messageManager->addError(__($e->getMessage()));
         }
-        return $this->resultFactory->create(ResultFactory::TYPE_REDIRECT)->setPath('*/movie/index');
+        return $this->resultFactory->create(ResultFactory::TYPE_REDIRECT)->setPath('*/blog/index');
     }
 }

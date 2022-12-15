@@ -30,7 +30,7 @@ class Popup extends Template
         $this->getPopuData();
     }
 
-    private function getGroupId()
+    public function getGroupId()
     {
         if ($this->customerSession->isLoggedIn()) {
             $customerGroupId = $this->customerSession->getCustomer()->getGroupId();

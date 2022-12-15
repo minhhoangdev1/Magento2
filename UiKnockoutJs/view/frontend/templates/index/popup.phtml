@@ -1,7 +1,23 @@
-<div id="popup" style="display: none">
+<?php if ($block->getIsset()==1): ?>
+<div id="popup" style="display: none" data-bind="scope: 'checkLogin'">
     <div class="modal-body-content">
         <h2><?php echo $block->getTitle()?></h2>
         <p><?php echo $block->getContent()?></p>
         <p><?php echo $block->getIsset()?></p>
     </div>
 </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+{
+    "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "checkLogin": {
+                        "component": "Magenest_UiKnockoutJs/js/test",
+                        "isLogin": <?php echo $block->getGroupId() ?>
+                    }
+                }
+            }
+    }
+}
+</script>
